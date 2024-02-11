@@ -32,7 +32,7 @@ This project is a simple implementation of the classic Snake game using Java. It
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/your-username/snake-game.git
+   git clone https://github.com/elie309/snake-game.git
 
 2. Compile the Java File
 
