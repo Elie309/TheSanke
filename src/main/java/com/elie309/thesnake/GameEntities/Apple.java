@@ -37,7 +37,7 @@ public class Apple extends Entity {
     public void update() {
         assert snakeBodyPosition.peek() != null;
         if(PVector.intersect(snakeBodyPosition.peek(), 3, applePosition, 3)){
-            SnakePlayer.tailSize += 5;
+            SnakePlayer.tailSize += 3;
             generateAppleRandomly();
         }
         display();
