@@ -1,0 +1,4 @@
+1) Start making images
+2) Need to implement bombs
+3) Need to implement Walls
+3) Need to more apple later
