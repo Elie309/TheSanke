@@ -136,14 +136,14 @@ public class PVector implements Cloneable{
      * @return boolean true or false
      */
     public static boolean intersect(PVector vector1, float size1, PVector vector2, float size2) {
-        float left1 = vector1.getX() -size1;
+        float left1 = vector1.getX() ;
         float right1 = vector1.getX() + size1;
-        float top1 = vector1.getY() -size1;
+        float top1 = vector1.getY() ;
         float bottom1 = vector1.getY() + size1;
 
-        float left2 = vector2.getX() - size2;
+        float left2 = vector2.getX() ;
         float right2 = vector2.getX() + size2;
-        float top2 = vector2.getY() - size2;
+        float top2 = vector2.getY() ;
         float bottom2 = vector2.getY() + size2;
 
         return !(right1 < left2 || left1 > right2 || bottom1 < top2 || top1 > bottom2);

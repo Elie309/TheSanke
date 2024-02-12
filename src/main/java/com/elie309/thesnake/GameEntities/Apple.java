@@ -1,12 +1,14 @@
 package com.elie309.thesnake.GameEntities;
 
 import com.elie309.thesnake.GamePlanner;
+import com.elie309.thesnake.Main;
 import com.elie309.thesnake.Utils.Entity;
 import com.elie309.thesnake.Utils.PVector;
 import javafx.scene.canvas.GraphicsContext;
-import javafx.scene.paint.Color;
+import javafx.scene.image.Image;
 
 import java.util.Deque;
+import java.util.Objects;
 
 public class Apple extends Entity {
 
@@ -17,7 +19,7 @@ public class Apple extends Entity {
 
     public static PVector applePosition;
 
-    public final int appleSize = 10;
+    public final int appleSize = 15;
 
     private final float widthRange;
     private final float heightRange;
@@ -28,6 +30,16 @@ public class Apple extends Entity {
         applePosition = PVector.generateRandomVector(widthRange, heightRange);
     }
 
+    public Image getImage(){
+
+        return new Image(
+                Objects.requireNonNull(Main.class.getResourceAsStream("entities/apple.png")),
+                appleSize,
+                appleSize,
+                false, false
+        );
+    }
+
     public void generateAppleRandomly(){
         applePosition = PVector.generateRandomVector(widthRange, heightRange);
     }
@@ -36,7 +48,7 @@ public class Apple extends Entity {
     @Override
     public void update() {
         assert snakeBodyPosition.peek() != null;
-        if(PVector.intersect(snakeBodyPosition.peek(), 3, applePosition, 3)){
+        if(PVector.intersect(snakeBodyPosition.peek(), 10, applePosition, 10)){
             SnakePlayer.tailSize += 3;
             generateAppleRandomly();
         }
@@ -45,8 +57,6 @@ public class Apple extends Entity {
 
     @Override
     public void display() {
-        gc.setFill(Color.RED);
-        gc.fillRect(applePosition.getX(), applePosition.getY(), appleSize,appleSize);
-
+        gc.drawImage(getImage(), applePosition.getX(), applePosition.getY());
     }
 }
